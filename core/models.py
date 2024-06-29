@@ -1,4 +1,6 @@
+from datetime import datetime
 from django.db import models
+from django.contrib.auth.forms import User
 
 
 # Create your models here.
@@ -94,4 +96,20 @@ class Accesorios(models.Model):
         return self.nombre_acc
     
     
-    
+class Boleta(models.Model):
+    id = models.AutoField(primary_key=True)
+    fecha_compra = models.DateTimeField(default= datetime.now, blank=True)
+    usuario = models.ForeignKey(to= User, on_delete=models.CASCADE)
+    monto_total = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.id} {self.usuario.username}'
+
+class DetalleBoleta(models.Model):
+    producto = models.ForeignKey(to=Accesorios, on_delete=models.CASCADE)
+    boleta = models.ForeignKey(to= Boleta, on_delete=models.CASCADE)
+    precio_prod = models.IntegerField()
+    cantidad_prod = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.producto.nombre} {self.boleta.id}'

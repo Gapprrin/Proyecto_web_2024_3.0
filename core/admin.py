@@ -19,3 +19,7 @@ admin.site.register(Accesorios_desc)
 admin.site.register(CategoriaAccesorios) 
 
 admin.site.register(Accesorios) 
+
+admin.site.register(Boleta)
+
+admin.site.register(DetalleBoleta)
