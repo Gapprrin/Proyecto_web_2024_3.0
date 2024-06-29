@@ -1,0 +1,47 @@
+<!-- git config --global core.autocrlf true -->
+{% extends 'planilla_header_footer.html' %}
+{% load static %}
+
+{% block estilo %}
+    <link rel="stylesheet" href="{% static 'Style/estilo_login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+  <section id="login_banner" onload="placeholder()">
+    <script>
+      window.addEventListener('DOMContentLoaded', function(){
+        document.querySelector("#id_username").placeholder = "Usuario";
+        document.querySelector("#id_password").placeholder = "Contraseña";
+      });
+    </script>
+    <div class="wrapper">
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <h1>Iniciar sesión</h1>
+        <div class="input-box">
+          {% comment %} <input type="text" placeholder="Usuario" required autofocus autocapitalize="none" autocomplete="username" name="Usuario"> {% endcomment %}
+          {{ form.username }}
+          <img src="{% static 'Icons/login/User-logo.png'%}" alt="User icon">
+        </div>
+        <div class="input-box" id="Password">
+          {% comment %} <input type="password" placeholder="Contraseña" maxlength="20" required autocomplete="current-password" name="Contraseña"> {% endcomment %}
+          <!-- <label for="password" id="label-contrasenia">Contraseña</label> -->
+          {{ form.password }}
+          <img src="{% static 'Icons/login/Password-logo.png'%}" alt="Password icon">
+        </div>
+        <div class="remember-me">
+          <label>
+            <input type="checkbox">Recuerdame
+          </label>
+        </div>
+        <button type="submit" class="login-button">Iniciar sesión</button>
+        <div class="dont-have-acount">
+          <a id="login-words" href="{% url 'create_account' %}">No tengo una cuenta</a>
+        </div>
+      </form>
+
+    </div>
+  </section>
+  {% endblock %}

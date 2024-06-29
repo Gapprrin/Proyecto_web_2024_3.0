@@ -1,0 +1,7 @@
+Para guardar cambios:
+    git add . (para cargar los datos en una nube temporal)
+    git commit -m "nombre_de_la_actualización" (nombras estos datos)
+    git push (guarda los datos y los sobreescribe)
+
+Para cargar cambios:
+    git pull

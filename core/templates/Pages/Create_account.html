@@ -1,0 +1,88 @@
+{% extends 'planilla_header_footer.html' %}
+{% load static %}
+
+{% block estilo %}
+    <link rel="stylesheet" href="{% static 'Style/estilo_login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <section id="login_banner">
+        <script>
+            window.addEventListener('DOMContentLoaded', function(){
+                document.querySelector("#id_username").placeholder = "Usuario"
+                document.querySelector("#id_email").placeholder = "Correo electronico"
+                document.querySelector("#id_password1").placeholder = "Contraseña"
+                document.querySelector("#id_password2").placeholder = "Repetir Contraseña"
+            })
+        </script>
+        <div class="wrapper" id="wrapper-create-account">
+            <form action="" method="post">
+                {% csrf_token %}
+                <h1>Crear cuenta</h1>
+                <div class="user-info-container">
+                    <div class="input-box" id="nombre-usuario">
+                        <!-- <input type="text" placeholder="Usuario*" id="input-nombre-usuario" onkeyup="validarNombre()" required> -->
+                        {{ form.username }}
+                        <img src="{% static 'Icons/login/User-logo.png'%}" alt="User logo icon">
+                        <p id="error-usuario">{{ form.errors.username }}</p>
+                    </div>
+                    <div class="input-box" id="comuna-usuario">
+                        <!-- <input type="text" placeholder="Comuna*" id="input-comuna" onkeyup="validarComuna()" required> -->
+                        <select title="comunas" id="input-comuna"  onchange="validarComuna()" required>
+                            <option value="0">Elegir Comuna</option>
+                            <option value="1">Melipilla</option>
+                            <option value="2">Curacaví</option>
+                            <option value="3">María Pinto</option>
+                            <option value="4">San Pedro</option>
+                            <option value="5">Cerrillos</option>
+                            <option value="6">Cerro Navia</option>
+                            <option value="7">Conchalí</option>
+                            <option value="8">El Bosque</option>
+                            <option value="9">Estación Central</option>
+                            <option value="10">Huechuraba</option>
+                            <option value="11">Independencia</option>
+                            <option value="12">La Cisterna</option>
+                            <option value="13">La Granja</option>
+                            <option value="13">La Florida</option>
+                            <option value="13">La Pintana</option>
+                            <option value="13">La Reina</option>
+                            <option value="13">Las Condes</option>
+                            <option value="13">Lo Barnechea</option>
+                            <option value="13">Lo Espejo</option>
+                        </select>
+                        <p id="error-comuna"></p>
+                        <img src="{% static 'Icons/login/comuna.png'%}" alt="User commune">
+                    </div>
+                </div>
+                
+                <div class="input-box" id="correo">
+                    <!-- <input type="email" id="input-correo" placeholder="Correo*" onkeyup="validarCorreo()" required> -->
+                    {{ form.email }}
+                    <img src="{% static 'Icons/login/Mail-logo.png'%}" alt="User icon">
+                    <p id="error-correo">{{form.errors.email}}</p>
+                </div>
+                <div class="input-box" id="Password">
+                    <!-- <input type="password" id="pass" placeholder="Contraseña*" maxlength="20" onkeyup="validarContrasenia()" required> -->
+                    {{ form.password1 }}
+                    <img src="{% static 'Icons/login/Password-logo.png'%}" alt="Password icon">
+                    <p id="error-contrasenia">{{form.errors.password1}}</p>
+                </div>
+                <div class="input-box" id="val-pass">
+                    <!-- <input type="password" id="repass" placeholder="Repetir Contraseña*" maxlength="20" onkeyup="validarRepetirContrasenia()" disabled required> -->
+                    {{ form.password2 }}
+                    <img src="{% static 'Icons/login/Password-logo.png'%}" alt="Password icon">
+                    <p id="error-repcontrasenia">{{form.errors.password2}}</p>
+                </div>
+                <button type="submit" class="login-button" onclick="validarFormulario()">Crear cuenta</button>
+                <div class="dont-have-acount">
+                    <a id="login-words" href="{% url 'login' %}">Ya tengo una cuenta</a>
+                </div>
+
+            </form>
+            
+        </div>
+        <script src="{% static 'Functions/create_account_functions.js'%}"></script>
+    </section>
+
+    {% endblock %}

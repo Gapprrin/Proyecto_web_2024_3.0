@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/*Página principal*/
+*{
+    font-family: "Open Sans", sans-serif; 
+    margin: 0; 
+}
+
+body{
+    min-width: 444px;
+}
+
+
+#logo{
+    width: 100px;
+    height: 30px;
+}
+
+#logo>img{
+    width: 100px;
+    height: 30px;
+}
+
+nav{
+	background-color: #000000; 
+	display: flex; 
+	justify-content: space-around;
+	align-items: center;
+    height: 70px;
+}
+
+a{
+	color: #ffffff;
+	text-transform: uppercase;
+	text-decoration: none;
+    font-size: 13px;
+    padding: 10px;
+}
+
+
+#final2{
+    height: 40vh;
+    background-color: #161616;
+    display: flex;
+    padding-left: 50px;
+}
+
+#final2>ul{
+    width: 1000px;
+    background-color: #161616;
+    padding-left: 2px;
+    margin-left: 40px;
+    height: 220px;
+    padding-top: 30px;
+   }
+
+#texto_ultimo{
+    height: 12vh;
+    background-color: #161616;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#texto_ultimo>h6{
+    color: #cecece;
+    text-align: center;
+    display: flex;
+    font-size: 14px;
+    margin-top: 30px;
+    background-color: #161616;
+}
+#instagram{
+    width: 40px;
+    height: 40px;
+    margin-left: 550px;
+    display: flex;
+    margin-top: -50px;
+ }
+  
+ #whatsap{
+    width: 40px;
+    height: 40px;
+    margin-left: 650px;
+    display: flex;
+    margin-top: -40px;
+  }
+
+  .login-container{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    text-align: end;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-logout{
+    border: none;
+    background-color: transparent;
+    color: white;
+    animation-name: btn-logout-animation;
+    border-radius: 10px;
+    width: 100%;
+    height: 25px;
+    transform: translateY(-40%);
+    text-align: center;
+}
+
+.btn-logout:hover{
+    background-color: #1f1f1f;
+    transition-duration: .2s;
+}
+
+.nombre-usuario{
+    font-size: 10px;
+    color: #5f5f5f;
+    text-align: justify;
+    transform: translateY(-15%);
+}
+
+
+/* login */
+
+#login_banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../Images/Backgrounds/login/login-banner.jpg);
+    min-height: 70vh;
+    width: 100%;
+    height: 88vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper{
+    background: #0d0d0d75;
+    border: 2px solid rgba(53, 75, 92, 0.2);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    height: 50vh;
+    width: 25vw;
+    filter: blur(40);
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h1{
+    text-align: center;
+    font-size: 36px;
+    cursor: default;
+    user-select: none;
+}
+
+.wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0; 
+}
+
+.input-box > input, .input-box>select{
+    width: 80%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 15px;
+    color: #ffffff;
+    /* Esto hace que se haga más grande los input */
+    padding-left: 20px;
+    padding-right: 50px;
+}
+
+.input-box > input::placeholder{
+    color: #727272;
+}
+
+/* 
+No sé como cambiar el color del mostrar contraseña
+::-ms-reveal{
+    color
+}
+*/
+
+.input-box > img{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-30%);
+}
+
+.wrapper .remember-me{
+    color: #888888;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+    margin: 15px 5px 15px;
+}
+
+.remember-me label input{
+    accent-color: #fff;
+    margin: 3px;
+}
+
+#login-words{
+    color: #7d7d7d;
+    font-size: 11.5px;
+    text-decoration: none;
+}
+
+#login-words:hover{
+    text-decoration: underline;
+    transition-duration: 0.5s;
+}
+
+.wrapper .login-button{
+    width: 100%;
+    height: 45px;
+    background-color: #cecece;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.wrapper .dont-have-acount{
+    text-align: center;
+    margin: 15px 0px 15px;
+    font-weight: 600;
+}
+
+/* .input-box>#label-contrasenia{
+    position: absolute;
+    margin-left: 21px;
+    transform: translateY(80%);
+    color: #727272;
+} */
+
+/* Página de creación de cuentas */
+
+
+#wrapper-create-account{
+    height: 65vh;
+    width: 25vw;
+}
+
+.user-info-container{
+    display: flex;
+    height: 5vh;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+
+#comuna-usuario, #nombre-usuario{
+    width: 49%;
+}
+
+
+#input-nombre-usuario{
+    width: 49%;
+}
+
+#input-comuna{
+    width: 100%;
+    padding-right: 30px;
+}
+
+
+#error-comuna{
+    text-align: left;
+    font-size: 9px;
+    color: #4697d1;
+    width: 150%;
+    margin-left: 13px;
+    user-select: none;
+}
+
+#error-usuario{
+    text-align: left;
+    font-size: 9px;
+    color: #4697d1;
+    width: 150%;
+    margin-left: 13px;
+    user-select: none;
+}
+
+
+#error-repcontrasenia{
+    text-align: left;
+    font-size: 9px;
+    color: #4697d1;
+    width: 150%;
+    margin-left: 13px;
+    user-select: none;
+}
+
+.invalido{
+    border: 2px solid #e21d51 !important;
+}
+
+#error-contrasenia{
+    text-align: left;
+    font-size: 9px;
+    color: #4697d1;
+    width: 150%;
+    margin-left: 13px;
+    user-select: none;
+}
+
+#error-correo{
+    text-align: left;
+    font-size: 9px;
+    color: #4697d1;
+    width: 150%;
+    margin-left: 13px;
+    user-select: none;
+}
+
+.input-box>select{
+    width: 170%;
+    height: 112%;
+}
+
+.input-box>select:nth-child(1){
+    background-color: #1b1c1f;
+    color: #727272;
+}
+
+#nombre-usuario{
+    width: 35%;
+}
+
+#nombre-usuario>img{
+    right: -30px;
+}
+
+.errorlist{
+    color: #4697d1;
+    font-size: .5rem;
+    width: 115%;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px;
+}
+
+@media only screen and (max-width: 1050px){
+    #wrapper-create-account{
+        width: 320px;
+        input{
+            padding-right: 40px;
+        }
+        #input-nombre-usuario{
+            padding-right: 50px;
+        }
+    }
+
+    .wrapper{
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .wrapper{
+        height: 55vh;
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    .barra-superior{
+    
+        #logotipo > img {
+            margin-top: 2px;
+            margin-left: 15px;
+            width: 83px; /* Cambiado a un valor porcentual para que sea proporcional al tamaño del logo */
+            height: 25px; /* Usando 'auto' para mantener la proporción del logotipo */
+        }
+        
+    }
+    #home{
+        .text_home{
+            display: none;
+        }
+    }
+    
+    #carrito{
+        .text_carrito{
+            display: none;
+        }
+    }
+    
+    #iniciarsesion{
+        .text_sesion{
+            display: none;
+        }
+    }
+    
+    #modelos{
+        .text_modelos{
+            display: none;
+        }
+    }
+    #accesorios{
+        .text_accesorios{
+            display: none;
+        }
+    }
+    
+    #acercade{
+        .text_acerca{
+            display: none;
+        }
+    }
+    
+    
+    #final2{
+        display: none;
+    }
+
+    #final2 > ul{
+        display: none;
+    }
+
+    #final > ul> a{
+        display: none;
+    }
+
+    #texto-ultimo{
+        padding-top: 300px;
+    }
+
+    #instagram, #whatsap{
+        display: none;
+    }
+
+    #texto_ultimo{
+        display: flex;
+        height: 200px;
+        justify-content: center;
+    }
+
+    .wrapper{
+        height: 350px;
+    }
+
+    #wrapper-create-account{
+        height: 460px;
+    }
+}
