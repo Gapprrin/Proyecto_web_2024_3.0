@@ -2,6 +2,7 @@
 from django.contrib.auth.views import logout_then_login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.urls import reverse
 from .models import *
 from .forms import *
@@ -74,7 +75,7 @@ def shopKart(request):
 def addToShopKart(request, id):
     accesorio = Accesorios.objects.get(id = id)
     carrito = request.session.get("carrito", [])
-    monto = request.session.get("monto", [{"subtotal" : 0, "total" : 0}])
+    monto = request.session.get("monto", [{"subtotal" : 0, "total" : 0, "descuento": 0}])
     for item in carrito:
         if item["id"] == id:
             monto[0]["subtotal"] -= item["subtotal"]
@@ -134,4 +135,35 @@ def accesorios(request):
 
 def acerca_de(request):
     return render(request, 'Pages/acerca_de.html') 
+
+def pagar(request):
+    if request.user.is_authenticated:
+        if len(request.session.get("carrito", [])) == 0:
+            messages.info(request, "Agrega un producto para comenzar.")
+            return redirect(to="Carrito")
+        pago = Boleta()
+        pago.usuario = request.user
+        total = 0
+        for producto in request.session.get("carrito", []):
+            total += producto["precio"]
+        pago.monto_total = total
+
+        pago.save()
+
+        for item in request.session.get("carrito", []):
+            accesorio = Accesorios.objects.get(id= item["id"])
+            detalle = DetalleBoleta()
+            detalle.producto = Accesorios.objects.get(id= item["id"])
+            detalle.boleta = pago
+            detalle.precio_prod = item["precio"]
+            detalle.cantidad_prod = item["cantidad"]
+            detalle.save()
+            accesorio.stock_acc -= item["cantidad"]
+            accesorio.save()
+        del(request.session["carrito"])
+        return redirect(to="Carrito")
+    
+    return redirect(to="login")
+    
+
 

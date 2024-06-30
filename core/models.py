@@ -112,4 +112,4 @@ class DetalleBoleta(models.Model):
     cantidad_prod = models.IntegerField()
 
     def __str__(self):
-        return f'{self.producto.nombre} {self.boleta.id}'
+        return f'{self.producto.nombre_acc} {self.boleta.id}'

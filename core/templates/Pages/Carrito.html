@@ -63,7 +63,7 @@
         {% for item in request.session.monto %}
           <div class="valor-monto">
             <div class="texto-monto" id="valor-subtotal">${{ item.subtotal }}</div>
-            <div class="texto-monto" id="valor-descuento">0%</div>
+            <div class="texto-monto" id="valor-descuento">{{ item.descuento }}%</div>
             <div class="texto-monto" id="valor-total">${{ item.total }}</div>
           </div>
         {% endfor %}
@@ -71,13 +71,30 @@
       <div class="pay-desc-container">
         <div class="cod-descuento">
           <input type="text" name="input-code" id="input-desc-code" class="input-code" placeholder="Cupón de descuento" maxlength="15">
-          <button type="button" class="buttons" onclick="validarCodigo()">Aplicar</button>
+          <button type="button" class="buttons" id="boton-aplicar" onclick="validarCodigo()">Aplicar</button>
+          <!-- <script>
+            document.querySelector('#boton-aplicar').addEventListener('click', function(){
+              let valor = validarCodigo()
+              request.session.monto.descuento = valor
+            })
+          </script> -->
         </div>
         <p id="no_valido"></p>
         <div class="pay-btn">
-          <button type="submit" class="buttons">Pagar</button>
+          <form action="{% url 'pagar' %}">
+            <button type="submit" class="buttons">Pagar</button>
+          </form>
         </div>
       </div>
+    </div>
+    <div class="messages">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>    
+        {% endif %}
     </div>
   </div>
 </section>

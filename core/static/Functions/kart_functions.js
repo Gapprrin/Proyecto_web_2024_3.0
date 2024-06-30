@@ -9,13 +9,20 @@ function validarCodigo(){
     let descuento = document.querySelector('#valor-descuento')
     let total = document.querySelector('#valor-total')
     let calculo
+    // let valor
     if (cod.value.trim().length > 0){
         if (codigos.includes(cod.value.trim())){
             if (subtotal.innerHTML.replace("$", "").trim() > 0){
                 document.querySelector('#no_valido').innerHTML = ''
                 descuento.innerHTML = codigos_val[cod.value.trim()] + '%'
                 calculo = parseInt(subtotal.innerHTML.replace("$", "")) - (parseInt(subtotal.innerHTML.replace("$", "")) * (codigos_val[cod.value.trim()]/100))
+                // if (calculo > 10000){
+                //     descuento.innerHTML = '$' + (total - calculo)
+                // }else{
+                //     descuento.innerHTML = codigos_val[cod.value.trim()] + '%'
+                // }
                 total.innerHTML = '$' + calculo
+                // valor = codigos_val[cod.value.trim()]
                 document.querySelector('#input-desc-code').setAttribute('disabled', '')
             }
             return
