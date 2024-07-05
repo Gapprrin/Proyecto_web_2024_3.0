@@ -16,5 +16,5 @@ urlpatterns = [
     path('removeFromShopKart/<id>', removeFromShopKart, name= 'removeFromShopKart'),
     path('accesorios/', accesorios, name='accesorios'),
     path('acerca_de/', acerca_de, name="acerca_de"),
-    path('pagar', pagar, name= "pagar")
+    path('pagar', pagar, name= "pagar"),
 ]  
