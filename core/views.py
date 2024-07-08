@@ -6,10 +6,14 @@ from django.contrib import messages
 from django.urls import reverse
 from .models import *
 from .forms import *
+from .models import NuevaColeccion
 
 # Create your views here.
 
-from .models import NuevaColeccion
+def adminMain(request):
+    accesorios = Accesorios.objects.all().order_by("nombre_acc")
+    return render(request, 'Pages/Administrador/admin_main.html', {'accesorios':accesorios})
+
 
 def home(request):
     nueva_coleccion = NuevaColeccion.objects.all()

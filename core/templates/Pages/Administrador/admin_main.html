@@ -1,0 +1,27 @@
+{% extends 'planilla_header_footer.html' %}
+{% load static %}
+
+
+{% block estilo %}
+    <link rel="stylesheet" href="{% static 'Style/estilo_admin.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="productos-container">
+        <h1 class="texto">Accesorios</h1>
+        <div class="labels texto">
+            <h2>NOMBRE</h2>
+            <h2>STOCK</h2>
+        </div>
+        <div class="productos">
+            {% for item in accesorios %}
+                <div class="accesorio">
+                    <button type="button" class="texto">{{item.nombre_acc}}</button>
+                    <p class="texto">{{ item.stock_acc }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

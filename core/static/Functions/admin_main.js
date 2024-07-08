@@ -1,0 +1,3 @@
+function mostrarIfo(){
+    return
+}
