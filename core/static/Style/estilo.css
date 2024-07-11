@@ -548,6 +548,8 @@ border-color: #cb5c0c;
     color: #909090;
     text-align: justify;
     transform: translateY(-15%);
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 

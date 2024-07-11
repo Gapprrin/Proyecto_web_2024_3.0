@@ -53,13 +53,23 @@
                 <span class="text_carrito">Carrito</span>
             </a>
             {% if user.is_authenticated %}
-                <div class="login-container">
-                    <h1 class="nombre-usuario">{{ user.username }}</h1>
-                    <form action="{% url 'logout' %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn-logout">Cerrar sesión</button>
-                    </form>
-                </div>
+                {% if user.is_superuser %}
+                    <div class="login-container">
+                        <a href="{% url 'adminMain' %}" class="nombre-usuario">{{ user.username }}</a>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-logout">Cerrar sesión</button>
+                        </form>
+                    </div>
+                {% else %}
+                    <div class="login-container">
+                        <h1 class="nombre-usuario">{{ user.username }}</h1>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-logout">Cerrar sesión</button>
+                        </form>
+                    </div>
+                {% endif %}
             {% else %}
             <a href="{% url 'login' %}" id="iniciarsesion" style="color: rgb(255, 255, 255); text-decoration: none;text-transform: uppercase;">
                 <img src="{% static 'Icons/Home/sesion.png'%}" alt="iniciarsesion"
