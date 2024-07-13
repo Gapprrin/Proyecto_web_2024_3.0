@@ -23,5 +23,66 @@
             {% endfor %}
         </div>
     </div>
+    <div class="info-container">
+        <div class="titulo">
+            <h1 class="texto">
+                Agregar nuevo accesorio
+            </h1>
+        </div>
+        <div class="info">
+            <div class="content content-1">
+                <div class="input">
+                    <label for="nombre_prod">Nombre del producto</label>
+                    <input type="text" placeholder="EJ: líquido de frenos" name="nombre_prod" class="input-texto" id="nombre-prod">
+                </div>
+                <div class="input">
+                    <label for="desc_prod">Descripción del producto</label>
+                    <input type="text" placeholder="EJ: líquido de frenos para su correcto funcionamiento" name="desc_prod" class="input-texto" id="desc-prod">
+                </div>
+                <div class="input">
+                    <label for="precio_prod">Precio del producto</label>
+                    <input type="text" placeholder="EJ: 50000" name="precio_prod" class="input-texto" id="precio-prod">
+                </div>
+            </div>
+            <div class="content content-2">
+                <div class="contenedor-imagen">
+                    <input type="file" name="imagen" id="imagen" accept="image/*">
+                    <img src="{% static 'Images/Admin/accesorio_imagen.png' %}" id="imagen-accesorio" alt="imagen_accesorio"">
+                    <script>
+                        document.querySelector("#imagen").addEventListener('change', function(){
+                            let imagen = document.querySelector("#imagen").files
+                            
+                            if (!imagen || !imagen.length){
+                                return 
+                            }
+
+                            document.querySelector("#imagen-accesorio").src = URL.createObjectURL(imagen[0])
+                            return
+                        })
+                    </script>
+                </div>
+                <div class="input">
+                    <label for="cat_prod">Categoría del producto</label>
+                    <input type="text" placeholder="EJ: Categoría" name="cat_prod" class="input-texto" id="cat-prod">
+                </div>
+                <div class="input">
+                    <label for="stock_prod">Stock del producto</label>
+                    <input type="text" placeholder="EJ: 15" name="stock_pord" class="input-texto" id="stock-pord">
+                </div>
+            </div>
+        </div>
+        <div class="botones">
+            <button class="buttons">
+                Agregar
+            </button>
+            <button class="buttons" id="clean-btn" onclick="limpiar()">
+                limpiar
+            </button>
+            <button class="buttons">
+                Borrar
+            </button>
+        </div>
+    </div>
 </section>
+<script src="{% static 'Functions/funciones_admin.js' %}"></script>
 {% endblock %}

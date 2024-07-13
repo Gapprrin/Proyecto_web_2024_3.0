@@ -149,8 +149,9 @@ section{
 .productos{
     display: flex;
     height: 84%;
-    width: 100%;
+    width: 99%;
     background-color: rgb(129, 128, 131);
+    border: 5px solid #161616;
     flex-direction: column;
     overflow-y: auto;
     scroll-behavior: smooth;
@@ -160,7 +161,7 @@ section{
 
 .accesorio{
     display: flex;
-    margin: 5px 10px 5px 10px;
+    margin: 15px 10px 5px 10px;
     column-gap: 5px;
     justify-content: space-between;
     width: 96%;
@@ -175,9 +176,7 @@ section{
 
 .labels{
     display: flex;
-    align-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: column;
+    align-items: space-between;
     height: 6%;
     width: 95%;
     transform: translateY(25%);
@@ -201,4 +200,134 @@ button{
 
 .texto{
     user-select: none;
+}
+
+.info-container{
+    display: flex;
+    background-color: #191919;
+    height: 87vh;
+    width: 59vw;
+    flex-direction: column;
+}
+
+.info{
+    display: flex;
+    width: 100%;
+    height: 52%;
+    background-color: #aeadad;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    row-gap: 15px;
+    margin: 10px 10px;
+}
+
+.botones{
+    display: flex;
+    width: 100%;
+    height: 30%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.buttons{
+    width: 150px;
+    height: 40px;
+    background-color: #3b3b3b;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #ffffff;
+    margin: 20px 20px;
+}
+
+.buttons:hover{
+    background-color: #787878;
+    transition-duration: .2s;
+}
+
+.titulo{
+    display: flex;
+    height: 20%;
+    width: 100%;
+}
+
+.titulo>h1{
+    height: 10%;
+    width: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    transform: translateY(110%);
+    color: #ffffff;
+}
+
+.contenedor-imagen{
+    display: flex;
+    height: 50%;
+    justify-content: space-between;
+}
+
+#imagen-accesorio{
+    height: 100%;
+    border-radius: 10px;
+}
+
+#imagen{
+    display: flex;
+    flex-direction: row;
+}
+
+.content-1{
+    display: flex;
+    height: 67%;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    color: #292929;
+    font-family: inherit;
+    font-size: .8rem;
+}
+
+#imagen::-webkit-file-upload-button{
+    width: 90%;
+    position: relative;
+    height: 40px;
+    background-color: #3b3b3b;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+#imagen::-webkit-file-upload-button:hover{
+    background-color: #787878;
+    transition-duration: .2s;
+}
+
+.input-texto{
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#imagen{
+    height: 40px;
+}
+
+input[type="file" i] {
+    color: transparent;
 }
