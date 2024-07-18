@@ -427,7 +427,7 @@ border-color: #cb5c0c;
 
 #texto_ultimo {
 
-    height: 12vh;
+    height: auto;
     background-color: #161616;
     align-items: center;
     display: flex;
@@ -682,7 +682,7 @@ border-color: #cb5c0c;
 
 
 
-/*-------------hasta aqui tengo ordenado------------------------------------------------------------------------------*/
+
 
 
 
